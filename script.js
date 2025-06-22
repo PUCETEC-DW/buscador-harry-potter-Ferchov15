@@ -1,0 +1,73 @@
+const input = document.getElementById("taskInput");
+const button = document.getElementById("buscardor");
+const list = document.getElementById("taskList");
+const casaSelect = document.getElementById("casaSelect");
+
+
+const DEFAULT_IMAGE = "https://via.placeholder.com/150?text=Sin+Imagen";
+
+// Función para mostrar los personajes
+function mostrarResultados(personajes) {
+    list.innerHTML = "";
+
+    if (personajes.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "Personaje no encontrado";
+        list.appendChild(li);
+        return;
+    }
+
+    personajes.forEach(personaje => {
+        const li = document.createElement("li");
+
+        const nombre = document.createElement("h3");
+        nombre.textContent = personaje.name;
+
+        const casa = document.createElement("p");
+        casa.textContent = `Casa: ${personaje.house || "Desconocida"}`;
+
+        const imagen = document.createElement("img");
+        imagen.src = personaje.image || DEFAULT_IMAGE;
+        imagen.alt = personaje.name;
+        imagen.width = 150;
+
+        li.appendChild(nombre);
+        li.appendChild(casa);
+        li.appendChild(imagen);
+
+        list.appendChild(li);
+    });
+}
+
+// Función para buscar personajes
+function buscarPersonajes() {
+    const textoBusqueda = input.value.trim().toLowerCase();
+
+    fetch("https://hp-api.onrender.com/api/characters")
+        .then(response => response.json())
+        .then(response => {
+        const textoBusqueda = input.value.trim().toLowerCase();
+        const casaSeleccionada = casaSelect.value;
+
+        // Filtro por nombre y casa
+        const personajesFiltrados = response.filter(p =>
+            p.name.toLowerCase().includes(textoBusqueda) &&
+            (casaSeleccionada === "" || p.house === casaSeleccionada)
+        );
+
+    personajesFiltrados.sort((a, b) => a.name.localeCompare(b.name));
+
+    mostrarResultados(personajesFiltrados);
+})
+
+}
+
+// Evento click
+button.addEventListener("click", buscarPersonajes);
+
+// (Opcional) Enter para buscar
+input.addEventListener("keypress", e => {
+    if (e.key === "Enter") {
+        buscarPersonajes();
+    }
+});
