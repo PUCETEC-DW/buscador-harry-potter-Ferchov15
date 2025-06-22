@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador Harry Potter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h2> Bienvenido al buscador de personajes de</h2>
+    <h3><strong>⚡HARRY POTTER⚡</strong></h3>
+    <input type="text" id="taskInput"/>
+    <button id="buscardor">Buscar personajes</button>
+    <label for="casaSelect">Filtrar por casa:</label>
+    <select id="casaSelect">
+        <option value=""><strong>Todas las casas</strong></option>
+        <option value="Gryffindor">🦁 Gryffindor</option>
+        <option value="Slytherin">🐍 Slytherin</option>
+        <option value="Hufflepuff">🦡 Hufflepuff</option>
+        <option value="Ravenclaw">🦅 Ravenclaw</option>
+    </select>
+    <button id="musicaBtn">🎵</button>
+    <audio id="musicaFondo" loop>
+        <source src="audios/hogwarts.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+    <br>
+    <div id="contenedor1">
+        <ul id="taskList"></ul>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

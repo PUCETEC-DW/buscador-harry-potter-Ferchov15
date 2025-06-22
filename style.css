@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("fondo.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    backdrop-filter: blur(2px); 
+}
+
+h2 { 
+    color: rgb(215, 218, 40);
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 45px;
+}
+
+h3 { 
+    color: rgb(21, 23, 155);
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 45px;
+}
+
+h4{ 
+    color: rgb(0, 0, 0);
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 37px;
+}
+
+/* Estilo del contenedor de resultados */
+#contenedor1 {
+    background-color: rgba(188, 204, 47, 0.527);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px auto;
+    max-width: 500px;
+    color: #504949  ;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 3px 3px 10px rgba(200, 255, 0, 0.8);
+    margin-top: 30px;
+}
+
+/* Estilo del input de búsqueda */
+#taskInput {
+    border-radius: 10px;
+    width: 50%;
+    height: 25px;
+    box-shadow: 3px 3px 10px rgba(200, 255, 0, 0.8);
+    margin-left: 12px;
+}
+
+/* Estilo del menú desplegable */
+label{
+    color: rgb(255, 211, 12);
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+/* Estilo del contenedor de las casas */
+#casaSelect {
+    background-color: rgba(188, 204, 47, 0.527);
+    color: blue;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 12%;
+    height: 25px;
+    box-shadow: 3px 3px 10px rgba(200, 255, 0, 0.8);
+    margin-left: 12px;
+}
+
+/* Estilo del botón de buscar */
+#buscardor {
+    background-color: rgb(103, 175, 9);
+    border-radius: 10px;
+    height: 35px;
+    width: 15%;
+    color: #ffffff;
+    font-size: 17px;
+    box-shadow: 2px 1px 20px rgba(200, 255, 0, 0.8);
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 12px;
+    transition: background-color 0.3s ease;
+}
+
+#buscardor:hover {
+    background-color: #ff9900;
+    border-radius: 10px;
+    color: #020202;
+    box-shadow: 2px 1px 20px #ff9900;
+    font-weight: bold;
+}
+
+img {
+    border-radius: 10px;
+}
+
+/* Estilo del botón de musica */
+#musicaBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #2a21aa;
+    color: white;
+    border: none;
+    border-radius: 50%; 
+    font-size: 24px;
+    box-shadow: 2px 1px 20px #bb14b3;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000; 
+}
+
+#musicaBtn:hover {
+    background-color: #45b921;
+    box-shadow: 2px 1px 20px #b0c213;
+}
