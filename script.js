@@ -20,7 +20,7 @@ function mostrarResultados(personajes) {
     personajes.forEach(personaje => {
         const li = document.createElement("li");
 
-        const nombre = document.createElement("h3");
+        const nombre = document.createElement("h4");
         nombre.textContent = personaje.name;
 
         const casa = document.createElement("p");
@@ -31,9 +31,13 @@ function mostrarResultados(personajes) {
         imagen.alt = personaje.name;
         imagen.width = 150;
 
+        const separador = document.createElement("p");
+        separador.textContent = '---------------------------------------'
+        
         li.appendChild(nombre);
         li.appendChild(casa);
         li.appendChild(imagen);
+        li.appendChild(separador);
 
         list.appendChild(li);
     });
@@ -106,3 +110,20 @@ input.addEventListener("keypress", e => {
     }
     
 });
+
+// funcion de musica
+const musica = document.getElementById("musicaFondo");
+const botonMusica = document.getElementById("musicaBtn");
+let reproduciendo = false;
+
+botonMusica.addEventListener("click", () => {
+    if (!reproduciendo) {
+        musica.play();
+        botonMusica.textContent = "🔇";
+    } else {
+        musica.pause();
+        botonMusica.textContent = "🎵";
+    }
+    reproduciendo = !reproduciendo;
+});
+
