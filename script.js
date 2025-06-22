@@ -62,12 +62,47 @@ function buscarPersonajes() {
 
 }
 
-// Evento click
-button.addEventListener("click", buscarPersonajes);
+// Evento click y local store 
+let itemsGuardados = JSON.parse(localStorage.getItem("listaItems")) || [];
+itemsGuardados.forEach(item => crearElemento(item));
+
+button.addEventListener("click", e =>{
+    let myItem = input.value.trim();
+    if (myItem !== "") {
+        buscarPersonajes();
+        if (!itemsGuardados.includes(myItem)) {
+        crearElemento(myItem);
+        itemsGuardados.push(myItem);
+        localStorage.setItem("listaItems", JSON.stringify(itemsGuardados));
+        } else {
+        alert("Este elemento ya fue buscado.");
+        }
+        input.value = "";
+    } else {
+        alert("No se puede buscar un personaje vacío");
+    }
+    input.focus();
+});
 
 // (Opcional) Enter para buscar
 input.addEventListener("keypress", e => {
     if (e.key === "Enter") {
-        buscarPersonajes();
+        let myItem = input.value.trim();
+        if (myItem !== "") {
+            buscarPersonajes();
+            if (!itemsGuardados.includes(myItem)) {
+            crearElemento(myItem);
+            itemsGuardados.push(myItem);
+            localStorage.setItem("listaItems", JSON.stringify(itemsGuardados));
+            } else {
+            alert("Este elemento ya fue buscado.");
+            }
+            input.value = "";
+        } else {
+            alert("No se puede buscar un personaje vacío");
+        }
+        input.focus();
+            
     }
+    
 });
